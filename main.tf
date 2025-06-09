@@ -43,22 +43,23 @@ provider "azurerm" {
 #   tags     = local.tags
 # }
 
-variable "prefix" {}
+#Version 3: Moving variables from main.tf to variables.tf
+# variable "prefix" {}
 
-variable "region" {
-  type        = string
-  default     = "UK South"
-  description = "The Azure region to deploy resources"
-  validation {
-    condition     = contains(["UK South", "UK West", "North Europe", "West Europe", "East US", "West US"], var.region)
-    error_message = "Invalid region"
-  }
-}
+# variable "region" {
+#   type        = string
+#   default     = "UK South"
+#   description = "The Azure region to deploy resources"
+#   validation {
+#     condition     = contains(["UK South", "UK West", "North Europe", "West Europe", "East US", "West US"], var.region)
+#     error_message = "Invalid region"
+#   }
+# }
 
-variable "tags" {
-  type        = map(any)
-  description = "A map of tags"
-}
+# variable "tags" {
+#   type        = map(any)
+#   description = "A map of tags"
+# }
 
 resource "azurerm_resource_group" "contoso_rg" {
   name     = "${var.prefix}_rg"
