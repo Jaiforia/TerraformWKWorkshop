@@ -12,6 +12,17 @@ provider "azurerm" {
   resource_provider_registrations = "core"
 }
 
+#Version 1 of main.tf without local variable
+# resource "azurerm_resource_group" "contoso_rg" {
+#   name     = "contoso_rg"
+#   location = "UK South"
+
+#   tags = {
+#     cost_center = "contoso research"
+#   }
+# }
+
+#Version 2: Using locals block
 locals {
   prefix = "contoso"
   region = "North Europe"
